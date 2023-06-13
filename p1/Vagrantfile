@@ -1,0 +1,88 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+    config.vm.box = "roboxes/alpine38"
+    config.vm.box_version = "4.2.16"
+    config.vm.box_url = "https://vagrantcloud.com/roboxes/alpine38"
+  
+    # Configure 
+    config.vm.provision "shell" do |p|
+      p.inline = <<-SHELL
+        apk update
+        apk add --no-cache k3s kubectl
+      SHELL
+      p.env = { "K3S_TOKEN" => "jenesuispasuntokenmaisunpeuxquandmeme" }
+    end
+    
+    
+    config.vm.define "fgalaupS" do |control|
+      control.vm.hostname = "fgalaupS"
+      control.vm.network "private_network", ip: "192.168.56.110"
+      control.vm.provider "virtualbox" do |v|
+        # Display the VirtualBox GUI when booting the machine
+        v.gui = true
+        v.name = "fgalaupS"
+        v.cpus = "1"
+        v.memory = "1024"
+        # v.disk : disk, size: "5GB"
+      end
+      config.vm.provision "shell" do |p|
+        p.inline = <<-SHELL
+          k3s server --node-name fgalaupS --token $K3S_TOKEN
+        SHELL
+      end
+    end
+    
+    config.vm.define "fgalaupSW" do |control|
+      control.vm.hostname = "fgalaupSW"
+      control.vm.network "private_network", ip: "192.168.56.111"
+      control.vm.provider "virtualbox" do |v|
+        # Display the VirtualBox GUI when booting the machine
+        v.gui = true
+        v.name = "fgalaupSW"
+        v.cpus = "1"
+        v.memory = "1024"
+        # v.disk : disk, size: "5GB"
+      end
+      config.vm.provision "shell" do |p|
+        p.inline = <<-SHELL
+          k3s agent  --node-name fgalaupSW --server https://192.168.56.110:6443 --token $K3_TOKEN
+        SHELL
+      end
+    end
+    
+    #
+    # View the documentation for the provider you are using for more
+    # information on available options.
+    
+    # Enable provisioning with a shell script. Additional provisioners such as
+    # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
+    # documentation for more information about their specific syntax and use.
+    # config.vm.provision "shell", inline: <<-SHELL
+    #   apt-get update
+    #   apt-get install -y apache2
+    # SHELL
+  
+  
+    # config.vm.box_check_update = false
+    # config.vm.network "forwarded_port", guest: 80, host: 8080
+    # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+    # config.vm.network "private_network", ip: "192.168.33.10"
+    # config.vm.network "public_network"
+    
+    # Share an additional folder to the guest VM. The first argument is
+    # the path on the host to the actual folder. The second argument is
+    # the path on the guest to mount the folder. And the optional third
+    # argument is a set of non-required options.
+    # config.vm.synced_folder "../data", "/vagrant_data"
+    
+    # Disable the default share of the current code directory. Doing this
+    # provides improved isolation between the vagrant box and your host
+    # by making sure your Vagrantfile isn't accessable to the vagrant box.
+    # If you use this you may want to enable additional shared subfolders as
+    # shown above.
+    # config.vm.synced_folder ".", "/vagrant", disabled: true
+  end
+  
