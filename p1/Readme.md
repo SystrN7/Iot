@@ -66,14 +66,14 @@ vagrant box remove <name> # remove a box
 ## Install k3s
 
 ```bash
-apk update
-apk add --no-cache k3s
+apt update
+apt install -y k3s
 ```
 
 ## Install kubectl
 
 ```bash
-apk add --no-cache kubectl
+apt install -y kubectl
 ```
 
 ## Assign a role to the nodes
@@ -88,3 +88,7 @@ k3s agent --server https://
 ## Test the cluster
 
 
+
+
+## Sources
+ - [Vagrant env config](https://www.nickhammond.com/configuring-vagrant-virtual-machines-with-env/)
