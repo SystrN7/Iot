@@ -1,0 +1,1 @@
+k3s agent  --node-name fgalaupSW --server https://192.168.56.110:6443 --token $K3S_CLUSTER_TOKEN

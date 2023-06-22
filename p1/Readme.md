@@ -91,4 +91,4 @@ k3s agent --server https://
 
 
 ## Sources
- - [Vagrant env config](https://www.nickhammond.com/configuring-vagrant-virtual-machines-with-env/)
+ - 

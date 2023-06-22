@@ -1,0 +1,1 @@
+k3s server --node-name fgalaupS --token $K3S_CLUSTER_TOKEN
