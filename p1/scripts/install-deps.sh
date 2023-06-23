@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # |========== Install common dependency ==========|
 apt update
 apt upgrade -y
@@ -12,4 +14,4 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 # |========== Install Docker ==========|
 # I don't use docker beacause podman exist LOL
-apt install podman
+apt install -y podman 

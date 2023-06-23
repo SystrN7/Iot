@@ -51,6 +51,7 @@ vagrant ssh # connect to the virtual machine
 # Terminate the SSH session with CTRL+D, or by logging out
 vagrant suspend # save state and stop the virtual machine
 vagrant halt # stop the virtual machine
+vagrant reload --provision # restart VM and run all provision script
 vagrant destroy # delete the virtual machine
 ```
 Manage Vagrant boxes with the following commands:
