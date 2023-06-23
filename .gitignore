@@ -1,2 +1,5 @@
 # Experiment directory
 learn
+
+# Vagrant
+.vagrant
