@@ -4,5 +4,5 @@ curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent --server https://192.168.
 
 # Copy kube config to user home (for kuectl)
 sudo chmod +r /etc/rancher/k3s/k3s.yaml
-mkdir -p ~/.kube
-cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+mkdir -p $HOME/.kube
+cp /etc/rancher/k3s/k3s.yaml $HOME/.kube/config

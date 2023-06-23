@@ -1,4 +1,6 @@
 # This token is the password of cluster we need them to add a node to the cluster (Need to be change)
+USER="vagrant"
+HOME="/home/vagrant"
 K3S_CLUSTER_TOKEN = "jenesuispasuntokenmaisunpeuxquandmeme"
 
 # -*- mode: ruby -*-
@@ -27,7 +29,7 @@ Vagrant.configure("2") do |config|
     end
     config.vm.provision "shell" do |p|
       p.path = "scripts/kube-server.sh"
-      p.env = { "K3S_CLUSTER_TOKEN" => K3S_CLUSTER_TOKEN }
+      p.env = { "K3S_CLUSTER_TOKEN" => K3S_CLUSTER_TOKEN, "HOME" => HOME }
     end
   end
   
@@ -44,7 +46,7 @@ Vagrant.configure("2") do |config|
     end
     config.vm.provision "shell" do |p|
       p.path = "scripts/kube-agent.sh"
-      p.env = { "K3S_CLUSTER_TOKEN" => K3S_CLUSTER_TOKEN }
+      p.env = { "K3S_CLUSTER_TOKEN" => K3S_CLUSTER_TOKEN, "HOME" => HOME }
     end
   end
   
