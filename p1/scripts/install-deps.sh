@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # |========== Install common dependency ==========|
-apt update
-apt upgrade -y
-apt install -y curl
+apt-get update
+apt-get upgrade -y
+apt-get install -y curl
 
 # |========== Install Kubectl ==========|
 #  - Source (https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
@@ -14,4 +14,4 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 # |========== Install Docker ==========|
 # I don't use docker beacause podman exist LOL
-apt install -y podman 
+apt-get install -y podman 

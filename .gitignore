@@ -3,3 +3,5 @@ learn
 
 # Vagrant
 .vagrant
+tmp
+
