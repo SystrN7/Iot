@@ -1,6 +1,3 @@
-# This token is the password of cluster we need them to add a node to the cluster (Need to be change)
-K3S_CLUSTER_TOKEN = "jenesuispasuntokenmaisunpeuxquandmeme"
-
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
@@ -18,7 +15,6 @@ Vagrant.configure("2") do |config|
     control.vm.hostname = "fgalaupS"
     control.vm.network "private_network", ip: "192.168.56.110"
     control.vm.provider "virtualbox" do |v|
-      # Display the VirtualBox GUI when booting the machine
       v.gui = false
       v.name = "fgalaupS"
       v.cpus = "1"
@@ -27,7 +23,6 @@ Vagrant.configure("2") do |config|
     end
     config.vm.provision "shell" do |p|
       p.path = "scripts/kube-server.sh"
-      p.env = { "K3S_CLUSTER_TOKEN" => K3S_CLUSTER_TOKEN }
     end
   end
   
@@ -35,7 +30,6 @@ Vagrant.configure("2") do |config|
     control.vm.hostname = "fgalaupSW"
     control.vm.network "private_network", ip: "192.168.56.111"
     control.vm.provider "virtualbox" do |v|
-      # Display the VirtualBox GUI when booting the machine
       v.gui = false
       v.name = "fgalaupSW"
       v.cpus = "1"
@@ -44,7 +38,6 @@ Vagrant.configure("2") do |config|
     end
     config.vm.provision "shell" do |p|
       p.path = "scripts/kube-agent.sh"
-      p.env = { "K3S_CLUSTER_TOKEN" => K3S_CLUSTER_TOKEN }
     end
   end
   
