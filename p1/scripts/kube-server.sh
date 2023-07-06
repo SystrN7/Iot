@@ -8,6 +8,7 @@ KUBE_CONFIG="/etc/rancher/k3s/k3s.yaml"
 # Add current node in /etc/hosts
 echo "127.0.0.1 $(hostname)" >> /etc/hosts
 
+
 # |========== Install K3s server ==========|
 export K3S_NODE_NAME="$(hostname)"
 export INSTALL_K3S_EXEC="server --cluster-init --node-ip=${IP_ADDRESS} --write-kubeconfig-mode 644"
