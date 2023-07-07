@@ -1,0 +1,28 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/mantic64"
+  config.vm.box_url = "https://vagrantcloud.com/ubuntu/mantic64"
+  
+  # Configure 
+  config.vm.provision "shell" do |p|
+    p.path = "scripts/install.sh"
+  end
+  
+  
+  config.vm.define "fgalaupS" do |control|
+    control.vm.hostname = "fgalaupS"
+    control.vm.network "private_network", ip: "192.168.56.110"
+    control.vm.provider "virtualbox" do |v|
+      v.gui = false
+      v.name = "fgalaupS"
+      v.cpus = "4"
+      v.memory = "2048"
+      # v.disk : disk, size: "5GB"
+    end
+    control.vm.provision "shell" do |p|
+      p.path = "scripts/deploy.sh"
+    end
+  end
+end
