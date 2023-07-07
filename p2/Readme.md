@@ -38,3 +38,8 @@ kubectl apply -f <file_name>
 # Delete a configuration file
 kubectl delete -f <file_name>
 ```
+
+## Sources
+ - [Expose Trafiik Dashboard](https://k3s.rocks/traefik-dashboard/)
+ - [Expose Bubernetes Dashboard](https://pgillich.medium.com/setup-lightweight-kubernetes-with-k3s-6a1c57d62217)
+ 
