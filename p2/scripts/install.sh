@@ -4,6 +4,11 @@
 apt-get update
 apt-get upgrade -y
 apt-get install -y curl
+apt-get install -y podman # Is a docker alternative
+
+# |========== Install K3S ==========|
+curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644
+
 
 # |========== Install Kubectl ==========|
 #  - Source (https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
@@ -11,10 +16,7 @@ apt-get install -y curl
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 # Install binary
 install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-
-# |========== Install Docker ==========|
-# I don't use docker beacause podman exist LOL
-apt-get install -y podman
+rm kubectl
 
 # |========== Install Helm ==========|
 #  - Source (https://helm.sh/docs/intro/install/)
@@ -24,9 +26,16 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.
 apt-get update
 apt-get install helm
 
-# |========== Install K3S ==========|
-curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644
 
+# |========== Setup kube config ==========|
 
+KUBE_CONFIG="/etc/rancher/k3s/k3s.yaml"
 
+while [ ! -e ${KUBE_CONFIG} ]
+do
+    sleep 2
+done
 
+# Configure kuectl
+mkdir -p /home/vagrant/.kube
+cp /etc/rancher/k3s/k3s.yaml /home/vagrant/.kube/config

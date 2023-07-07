@@ -6,8 +6,8 @@
 if [ ! -f /etc/hosts.bak ]; then
     sudo cp /etc/hosts /etc/hosts.bak
 fi
-sudo cat /etc/hosts.bak > /etc/hosts
-sudo cat /vagrant/confs/hosts >> /etc/hosts
+sudo bash -c 'cat /etc/hosts.bak > /etc/hosts'
+sudo bash -c 'cat confs/hosts >> /etc/hosts'
 
 # Start vagrant
 vagrant up
