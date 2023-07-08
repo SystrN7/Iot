@@ -1,11 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: whoami
+  name: app1
+
 spec:
   type: ClusterIP
   ports:
-    - port: 5678
+    - port: 8913
       targetPort: 80
+      protocol: TCP
   selector:
-    app: whoami
+      app: "app1"

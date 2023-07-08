@@ -16,5 +16,10 @@ kubectl apply -f /vagrant/confs/dashboard/trafiik/service.yaml
 kubectl apply -f /vagrant/confs/dashboard/trafiik/ingress.yaml
 
 # Deploy apps1
+kubectl apply -f /vagrant/confs/test/hello-deployment.yaml
+kubectl apply -f /vagrant/confs/test/hello-service.yaml
+kubectl apply -f /vagrant/confs/test/hello-ingress.yaml
+
 # Deploy apps2
+
 # Deploy apps3
