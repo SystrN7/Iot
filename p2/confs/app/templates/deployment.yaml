@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: app1
-  replicas: 1
+  replicas: {{ .Values.deployment.replicaCount }}
   template:
     metadata:
       labels:
@@ -22,7 +22,7 @@ spec:
           - name: PORT
             value: "80"
           - name: MESSAGE
-            value: "Hello from app1"
+            value: {{ .Values.message }}
           - name: KUBERNETES_NAMESPACE
             valueFrom:
               fieldRef:

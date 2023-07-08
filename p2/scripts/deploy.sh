@@ -1,4 +1,6 @@
 #Deploy apps
+
+sleep 10
 echo "Deploying apps..."
 
 # Deploy tools
@@ -16,10 +18,19 @@ kubectl apply -f /vagrant/confs/dashboard/trafiik/service.yaml
 kubectl apply -f /vagrant/confs/dashboard/trafiik/ingress.yaml
 
 # Deploy apps1
-kubectl apply -f /vagrant/confs/test/hello-deployment.yaml
-kubectl apply -f /vagrant/confs/test/hello-service.yaml
-kubectl apply -f /vagrant/confs/test/hello-ingress.yaml
+helm install --create-namespace --namespace hello-kubernetes app1 /vagrant/confs/app \
+  --set ingress.host="app1.com" \
+  --set message="Hello from app1." \
+  --set deployment.replicaCount=1
 
 # Deploy apps2
+helm install --create-namespace --namespace hello-kubernetes app2 /vagrant/confs/app \
+  --set ingress.host="app2.com" \
+  --set message="Hello from app2." \
+  --set deployment.replicaCount=3
 
 # Deploy apps3
+helm install --create-namespace --namespace hello-kubernetes app3 /vagrant/confs/app \
+  --set ingress.host="" \
+  --set message="Hello from app3." \
+  --set deployment.replicaCount=1

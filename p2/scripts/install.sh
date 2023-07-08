@@ -39,3 +39,5 @@ done
 # Configure kuectl
 mkdir -p /home/vagrant/.kube
 cp /etc/rancher/k3s/k3s.yaml /home/vagrant/.kube/config
+chown -R vagrant:vagrant /home/vagrant/.kube
+chmod 600 /home/vagrant/.kube/config
