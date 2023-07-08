@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app1
+  name: {{ .Release.Name }}
 
 spec:
   selector:
     matchLabels:
-      app: app1
+      app: {{ .Release.Name }}
   replicas: {{ .Values.deployment.replicaCount }}
   template:
     metadata:
       labels:
-        app: app1
+        app: {{ .Release.Name }}
     spec:
       containers:
-        - name: app1
+        - name: {{ .Release.Name }}
           image: paulbouwer/hello-kubernetes:1.10
           ports:
             - containerPort: 80
