@@ -2,42 +2,23 @@
 
 In this seconde part we only use one node (fgalaupS) and we will deploy three simple applications on them with kubernetes and helm.
 
+## Exposed applications
+Warning: The exposed applications are not secured and should not be used in production environment !
+ - [Trafiik Dashboard](http://traefik.cluster/dashboard/)
+ - [Kubernetes Dashboard](https://kubernetes.cluster/)
+To get the token to connect to the kubernetes dashboard, run the following command:
+```bash
+# Run this command on the server fgalaupS shell. (vagrant ssh fgalaupS)
+sudo k3s kubectl -n kubernetes-dashboard create token admin-user
+```
+ - [Application 1](http://app1.com/)
+ - [Application 2](http://app2.com/)
+ - [Application 3](http://app3.com/)
+
 ## Kubernetes
 
 ## Helm
 
-
-
-## Kubectl commands
-
-
-
-```bash
-kubectl get nodes # list all nodes in the kubernetes cluster
-kubectl get pods # list all pods
-kubectl get services # list all services
-kubectl get deployments # list all deployments
-kubectl get ingress # list all ingress (entry point to the cluster)
-kubectl get configmaps # list all config 
-
-# Describe a kubernetes resource
-kubectl describe node <node_name> 
-kubectl describe pod <pod_name>
-...
-
-# Delete a kubernetes resource
-kubectl delete node <node_name>
-kubectl delete pod <pod_name>
-...
-
-# Get the logs of a pod
-kubectl logs <pod_name>
-
-# Apply a configuration file
-kubectl apply -f <file_name>
-# Delete a configuration file
-kubectl delete -f <file_name>
-```
 
 ## Sources
  - [Expose Trafiik Dashboard](https://k3s.rocks/traefik-dashboard/)

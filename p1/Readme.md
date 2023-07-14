@@ -40,27 +40,7 @@ export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
 
 [Source](https://developer.hashicorp.com/vagrant/docs/other/wsl)
 
-## Vagrant base commands
 
-Manage virtual machines with Vagrant using the following commands:
-
-```bash
-vagrant init <base_box> # create a Vagrantfile with the specified base box
-vagrant up # start the virtual machine
-vagrant ssh # connect to the virtual machine
-# Terminate the SSH session with CTRL+D, or by logging out
-vagrant suspend # save state and stop the virtual machine
-vagrant halt # stop the virtual machine
-vagrant reload --provision # restart VM and run all provision script
-vagrant destroy # delete the virtual machine
-```
-Manage Vagrant boxes with the following commands:
-
-```bash
-vagrant box list # list all installed boxes
-vagrant box add <name> <url> # add a box from a specific url
-vagrant box remove <name> # remove a box
-```
 
 ## Create the Vagrantfile
 

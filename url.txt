@@ -1,0 +1,7 @@
+https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-SCM-Provider/#gitlab
+https://argo-cd.readthedocs.io/en/stable/getting_started/
+https://www.techmanyu.com/setup-a-gitops-deployment-model-on-your-local-development-environment-with-k3s-k3d-and-argocd-4be0f4f30820
+https://www.sokube.io/en/blog/gitops-on-a-laptop-with-k3d-and-argocd-en
+https://yashguptaa.medium.com/application-deploy-to-kubernetes-with-argo-cd-and-k3d-8e29cf4f83ee
+https://itnext.io/argo-cd-rancher-desktop-for-a-local-gitops-lab-8d044089f50a
+https://github.com/argoproj/argocd-example-apps/tree/master/helm-guestbook
