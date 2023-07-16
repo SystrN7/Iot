@@ -1,0 +1,9 @@
+# Provide a custom message
+message: "Hello from kubernetes"
+
+ingress:
+  host: "hello-kubernetes.cluster"
+  pathPrefix: "/"
+
+deployment:
+  replicaCount: 1
