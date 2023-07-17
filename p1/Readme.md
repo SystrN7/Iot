@@ -16,60 +16,63 @@ ServerWorker:
  - services/software: ssh, k3s, kubectl
  - mode: agent (slave)
 
-## What is Vagrant?
+## Technologies
+
+### Vagrant
 
 Vagrant is a tool for building and managing virtual machine environments  with configuration files called Vagrantfiles. If you are familiar with Docker, you can think of Vagrant as a tool to create virtual machines instead of containers.
 
 Like docker, Vagrant uses base image as a starting point to create a virtual machine. Vagrant calls this base image a box. A box can be a minimal operating system or a fully configured development environment. You can find boxes for Vagrant at [Vagrant Cloud](https://app.vagrantup.com/boxes/search).
 
+### K3s
 
-## Install Vagrant
+K3s is a lightweight Kubernetes distribution created by Rancher Labs. It is designed for edge computing, IoT, and CI/CD. It is packaged as a single binary and only requires 512MB of RAM to run.
+
+## Prerequisites
+
+### Install VirtualBox
+
+you need to install VirtualBox on your machine as Virtual machine provider for vagrant.
+
+Refer to the [Official documentation](https://www.virtualbox.org/wiki/Downloads) to install VirtualBox on your machine.
+
+### Install Vagrant
 
 Refer to the [Official documentation](https://developer.hashicorp.com/vagrant/tutorials/getting-started/getting-started-install) to install Vagrant on your machine.
 
-### Special notes for wsl2
 
-I personally use wsl2 on windows 10, and I had to do some extra steps to make it work.
+## Run the cluster
 
-⚠️ Is not recommended *Todo* remove this part.
-
-```bash
-export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
-export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
-```
-
-[Source](https://developer.hashicorp.com/vagrant/docs/other/wsl)
-
-
-
-## Create the Vagrantfile
-
-## Install k3s
+You current working directory must be the root of the project. (the directory that contains the Vagrantfile)
 
 ```bash
-apt update
-apt install -y k3s
-```
-
-## Install kubectl
-
-```bash
-apt install -y kubectl
-```
-
-## Assign a role to the nodes
-
-```bash
-# On the server
-k3s server --node-external-ip
-# On the server worker
-k3s agent --server https://
+# Create and start the virtual machines and run the init shell script.
+vagrant up
 ```
 
 ## Test the cluster
 
+```bash
+# To establish an SSH connection to the server fgalaupS.
+vagrant ssh fgalaupS
+# To establish an SSH connection to the server fgalaupSW.
+vagrant ssh fgalaupSW
+```
 
+```bash
+# Run this command on the server fgalaupS shell. (vagrant ssh fgalaupS)
+sudo k3s kubectl get nodes
+```
 
+Expected output:
+```
+NAME         STATUS   ROLES                  AGE   VERSION
+fgalaupS     Ready    control-plane,master   10m   v1.21.2+k3s1
+fgalaupSW    Ready    <none>                 10m   v1.21.2+k3s1
+```
 
 ## Sources
- - 
+ - [Vagrant Getting started](https://developer.hashicorp.com/vagrant/tutorials/getting-started)
+ - [K3s install](https://docs.k3s.io/installation/configuration#configuration-with-install-script)
+ - [K3s config option](https://docs.k3s.io/cli)
+ - [Tutorial](https://tferdinand.net/creer-un-cluster-kubernetes-local-avec-vagrant/)(French)
