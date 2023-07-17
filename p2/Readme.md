@@ -61,7 +61,7 @@ You current working directory must be the root of the project. (the directory th
 
 ```bash
 # Create and start the virtual machines and run the init shell script.
-vagrant up
+bash ./run.sh
 ```
 
 ## Test the cluster
