@@ -28,7 +28,7 @@ rm argocd-linux-amd64
 # Install k3d
 wget -q -O - https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | TAG=v5.5.1 bash
 # Create cluster
-sudo k3d cluster create argocd --api-port 6443 --agents 2
+sudo k3d cluster create argocd --api-port 6443 -p "80:80@loadbalancer" --agents 2
 
 # Configure kubectl
 mkdir -p ~/.kube
