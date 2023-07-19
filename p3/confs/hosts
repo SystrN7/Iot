@@ -2,3 +2,4 @@
 # This is for part 3 of iot
 # You can remove this if you dont use 
 127.0.0.1  argocd.cluster
+127.0.0.1  app.com
