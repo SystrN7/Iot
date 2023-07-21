@@ -61,8 +61,23 @@ Refer to the [Official documentation](https://k3d.io/#installation) to install K
 
 ## Run the cluster
 
+To run the cluster, you can run the following command:
+
+```bash
+# Run this to create the cluster.
+bash ./scripts/deploy.sh
+
+# Run this to delete the cluster.
+bash ./scripts/reset.sh
+```
 
 ## Test the cluster
+
+login to the argocd dashboard with username and password given durring execution of the script `deploy.sh`.
+
+you can see the application `42 provide container` is deployed.
+
+commit a change on the github repository and see the application is updated.
 
 
 ## Sources
