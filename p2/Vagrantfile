@@ -16,8 +16,8 @@ Vagrant.configure("2") do |config|
     control.vm.provider "virtualbox" do |v|
       v.gui = false
       v.name = "fgalaupS"
-      v.cpus = "4"
-      v.memory = "2048"
+      v.cpus = "2"
+      v.memory = "4096"
       # v.disk : disk, size: "5GB"
     end
     control.vm.provision "shell" do |p|

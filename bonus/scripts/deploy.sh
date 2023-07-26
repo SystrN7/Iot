@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Add Gitlab to hosts file
-if [ -f /etc/hosts.bak ]; then
+if [ -f /etc/hosts.bak ]
+then
     sudo bash -c 'cat confs/hosts >> /etc/hosts'
 fi
 

@@ -1,6 +1,7 @@
 # Part 1 : Setup Environment (Vagrant, k3s)
 
-In this first part, we will setup the environment and create two virtual machines with Vagrant, and install k3s on them.
+In this first part, we will setup the environment and create two virtual
+machines with Vagrant, and install k3s on them.
 
 Server:
  - hostname: `fagalaupS`
@@ -20,30 +21,42 @@ ServerWorker:
 
 ### Vagrant
 
-Vagrant is a tool for building and managing virtual machine environments  with configuration files called Vagrantfiles. If you are familiar with Docker, you can think of Vagrant as a tool to create virtual machines instead of containers.
+Vagrant is a tool for building and managing virtual machine environments with
+configuration files called Vagrantfiles. If you are familiar with Docker, you
+can think of Vagrant as a tool to create virtual machines instead of containers.
 
-Like docker, Vagrant uses base image as a starting point to create a virtual machine. Vagrant calls this base image a box. A box can be a minimal operating system or a fully configured development environment. You can find boxes for Vagrant at [Vagrant Cloud](https://app.vagrantup.com/boxes/search).
+Like docker, Vagrant uses base image as a starting point to create a virtual
+machine. Vagrant calls this base image a box. A box can be a minimal operating
+system or a fully configured development environment. You can find boxes for
+Vagrant at [Vagrant Cloud](https://app.vagrantup.com/boxes/search).
 
 ### K3s
 
-K3s is a lightweight Kubernetes distribution created by Rancher Labs. It is designed for edge computing, IoT, and CI/CD. It is packaged as a single binary and only requires 512MB of RAM to run.
+K3s is a lightweight Kubernetes distribution created by Rancher Labs. It is
+designed for edge computing, IoT, and CI/CD. It is packaged as a single binary
+and only requires 512MB of RAM to run.
 
 ## Prerequisites
 
 ### Install VirtualBox
 
-you need to install VirtualBox on your machine as Virtual machine provider for vagrant.
+You need to install VirtualBox on your machine as the Virtual machine provider
+for Vagrant.
 
-Refer to the [Official documentation](https://www.virtualbox.org/wiki/Downloads) to install VirtualBox on your machine.
+Refer to the [Official documentation](https://www.virtualbox.org/wiki/Downloads)
+to install VirtualBox on your machine.
 
 ### Install Vagrant
 
-Refer to the [Official documentation](https://developer.hashicorp.com/vagrant/tutorials/getting-started/getting-started-install) to install Vagrant on your machine.
+Refer to the
+[Official documentation](https://developer.hashicorp.com/vagrant/tutorials/getting-started/getting-started-install)
+to install Vagrant on your machine.
 
 
 ## Run the cluster
 
-You current working directory must be the root of the project. (the directory that contains the Vagrantfile)
+Your current working directory must be the root of the project. (the directory
+that contains the Vagrantfile)
 
 ```bash
 # Create and start the virtual machines and run the init shell script.
