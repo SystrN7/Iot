@@ -14,6 +14,9 @@ This project is divided into 3 parts + 1 bonus part:
 [Readme](p2/Readme.md)
 ## Part 3: K3d and Argo CD
 [Readme](p3/Readme.md)
+## Part Bonus: K3d, Argo CD and Gitlab
+[Readme](bonus/Readme.md)
+
 
 ## Technologies
  - [VirtualBox](https://www.virtualbox.org/) - ([Documentation](https://www.virtualbox.org/wiki/Documentation))
