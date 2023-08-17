@@ -3,5 +3,7 @@ learn
 
 # Vagrant
 .vagrant
+*.log
 tmp
+helm
 

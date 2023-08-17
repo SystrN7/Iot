@@ -5,8 +5,7 @@ echo "Deploying apps..."
 
 # Deploy tools
 # Deploy kubernetes dashboard
-GITHUB_URL=https://github.com/kubernetes/dashboard/releases
-VERSION_KUBE_DASHBOARD=$(curl -w '%{url_effective}' -I -L -s -S ${GITHUB_URL}/latest -o /dev/null | sed -e 's|.*/||')
+VERSION_KUBE_DASHBOARD=v2.7.0
 kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/${VERSION_KUBE_DASHBOARD}/aio/deploy/alternative.yaml
 
 kubectl create -f /vagrant/confs/dashboard/kubernetes/admin-user-role.yaml
